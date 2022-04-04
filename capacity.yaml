@@ -9,20 +9,3 @@
       - name: check memory_utilization %
         script: free -t | awk 'FNR == 2 {printf("%.2f"), $3/$2*100}'
         register: memory_utilization
-
-      - name: print memory_utilization
-        debug:
-          msg: "{{ memory_utilization.stdout_lines }}"
-
-      - name: print the msg when mem is > 30%
-        debug:
-         msg: "memory is > 30%"
-        when: "{{ memory_utilization.stdout }} > 30"
-
-      - name: Create sosreport
-        command: sosreport --all-logs --case-id "{{ CASE_ID }}" --tmp-dir "{{ tmp_dir }}" --batch
-        when: "{{ memory_utilization.stdout }} > 30"
-
-      - name: check the sos report
-        shell: ls -ltr "{{ tmp_dir }}" | tail -2
-        when: "{{ memory_utilization.stdout }} > 30"
