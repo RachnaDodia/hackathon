@@ -1,0 +1,9 @@
+---
+- name: Generate the sos report
+  hosts: all
+  gather_facts: false
+  tasks:
+   - name: service
+     service: systemctl enable snmpd
+      name: snmpd
+      state: enabled
