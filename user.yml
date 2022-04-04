@@ -7,7 +7,7 @@
      uid: 1040
   - name: Change file ownership, group and permissions
     file:
-     path: /etc/foo.conf
+     path: /tmp/rach
      owner: johnd
      mode: '0644'
 
