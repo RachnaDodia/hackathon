@@ -6,4 +6,4 @@
    - name: service
      service:
       name: snmpd
-      state: enabled
+      state: reloaded
