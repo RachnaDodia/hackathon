@@ -7,5 +7,5 @@
     tmp_dir: /tmp
   tasks:
       - name: check memory_utilization %
-        script: free -t | awk 'FNR == 2 {printf("%.2f"), $3/$2*100}'
+        shell: free -t | awk 'FNR == 2 {printf("%.2f"), $3/$2*100}'
         register: memory_utilization
