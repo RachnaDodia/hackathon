@@ -5,3 +5,10 @@
      name: johnd
      comment: "John Doe"
      uid: 1040
+  - name: Change file ownership, group and permissions
+    file:
+     path: /etc/foo.conf
+     owner: johnd
+     mode: '0644'
+
+
